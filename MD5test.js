@@ -4,38 +4,38 @@ function MD5_test(){
     result_str = MD5Main(target_str);
     document.myFrm.myTextBoxAnswer.value = "" + result_str;
 }
-// ˆÈ‰º‚ÌŠÖ”‚ªƒƒCƒ“ŠÖ”
-// ˆÈ‰º‚Ì’l‚ğƒRƒs[&ƒy[ƒXƒg‚µ‚Äg‚¦‚Î‚¢‚¢B
-// ƒOƒ[ƒoƒ‹‚ÈƒXƒR[ƒv‚ğ‚Â•Ï”
-// ÀÛ‚ÍA’è”ˆµ‚¢
+// ä»¥ä¸‹ã®é–¢æ•°ãŒãƒ¡ã‚¤ãƒ³é–¢æ•°
+// ä»¥ä¸‹ã®å€¤ã‚’ã‚³ãƒ”ãƒ¼&ãƒšãƒ¼ã‚¹ãƒˆã—ã¦ä½¿ãˆã°ã„ã„ã€‚
+// ã‚°ãƒ­ãƒ¼ãƒãƒ«ãªã‚¹ã‚³ãƒ¼ãƒ—ã‚’æŒã¤å¤‰æ•°
+// å®Ÿéš›ã¯ã€å®šæ•°æ‰±ã„
 var MD5Round1S;
 var MD5Round2S;
 var MD5Round3S;
 var MD5Round4S;
 var MD5PADDING;
-    // RFC1321 P10 ‚Ì S11`S44 ‚Ì define
+    // RFC1321 P10 ã® S11ï½S44 ã® define
 MD5Round1S = new Array(7,12,17,22);
 MD5Round2S = new Array(5,9,14,20);
 MD5Round3S = new Array(4,11,16,23);
 MD5Round4S = new Array(6,10,15,21);
-    // RFC1321 P10 ‚Ì PADDING[64]
+    // RFC1321 P10 ã® PADDING[64]
 MD5PADDING = new Array(128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-    // ƒOƒ[ƒoƒ‹‚ÈƒXƒR[ƒv‚ğ‚Â•Ï”
-    // MD5Main() ‚Å‰Šú‰»‚·‚é
-        // “ü—Í•¶š‚ÌƒR[ƒh‚ğŠi”[‚·‚é”z—ñ
+    // ã‚°ãƒ­ãƒ¼ãƒãƒ«ãªã‚¹ã‚³ãƒ¼ãƒ—ã‚’æŒã¤å¤‰æ•°
+    // MD5Main() ã§åˆæœŸåŒ–ã™ã‚‹
+        // å…¥åŠ›æ–‡å­—ã®ã‚³ãƒ¼ãƒ‰ã‚’æ ¼ç´ã™ã‚‹é…åˆ—
 var MD5IntInputData;
-    // MD5 ‚ÌŒ‹‰Ê(ƒR[ƒh)‚ğŠi”[‚·‚é”z—ñ
+    // MD5 ã®çµæœ(ã‚³ãƒ¼ãƒ‰)ã‚’æ ¼ç´ã™ã‚‹é…åˆ—
 var MD5digest;
-    // RFC1321 context \‘¢‘Ì‚Ì count ”z—ñ
-    // ‚±‚ê‚Ì’PˆÊ‚Í bit
+    // RFC1321 context æ§‹é€ ä½“ã® count é…åˆ—
+    // ã“ã‚Œã®å˜ä½ã¯ bit
 var MD5contextCount;
-    // RFC1321 context \‘¢‘Ì‚Ì state ”z—ñ
-    // RFC1321 P4 ‚Ì word A,B,C,D
+    // RFC1321 context æ§‹é€ ä½“ã® state é…åˆ—
+    // RFC1321 P4 ã® word A,B,C,D
 var MD5contextState;
-    // RFC1321 context \‘¢‘Ì‚Ì buffer ”z—ñ
+    // RFC1321 context æ§‹é€ ä½“ã® buffer é…åˆ—
 var MD5contextBuffer;
     ///////////////////////////////////////
-    // RFC1321 P10 ‚Å define ‚³‚ê‚Ä‚¢‚é F()
+    // RFC1321 P10 ã§ define ã•ã‚Œã¦ã„ã‚‹ F()
 function MD5F(x,y,z){
     var ans;
     var temp;
@@ -45,7 +45,7 @@ function MD5F(x,y,z){
     return ans;
 }
 ///////////////////////////////////////
-// RFC1321 P10 ‚Å define ‚³‚ê‚Ä‚¢‚é G()
+// RFC1321 P10 ã§ define ã•ã‚Œã¦ã„ã‚‹ G()
 function MD5G(x,y,z){
      var ans;
      var temp;
@@ -55,7 +55,7 @@ function MD5G(x,y,z){
      return ans;
 }
 ///////////////////////////////////////
-// RFC1321 P10 ‚Å define ‚³‚ê‚Ä‚¢‚é H()
+// RFC1321 P10 ã§ define ã•ã‚Œã¦ã„ã‚‹ H()
     function MD5H(x,y,z){
      var ans;
      
@@ -63,7 +63,7 @@ function MD5G(x,y,z){
      return ans;
     }
 ///////////////////////////////////////
-// RFC1321 P10 ‚Å define ‚³‚ê‚Ä‚¢‚é I()
+// RFC1321 P10 ã§ define ã•ã‚Œã¦ã„ã‚‹ I()
     function MD5I(x,y,z){
      var ans;
      var temp;
@@ -73,7 +73,7 @@ function MD5G(x,y,z){
      return ans;
     }
 ///////////////////////////////////////
-// RFC1321 P10 ‚Å define ‚³‚ê‚Ä‚¢‚é ROTATE_LEFT()
+// RFC1321 P10 ã§ define ã•ã‚Œã¦ã„ã‚‹ ROTATE_LEFT()
     function MD5ROTATE_LEFT(x,n){
      var ans;
      var ans1;
@@ -87,7 +87,7 @@ function MD5G(x,y,z){
      return ans;
     }
 ///////////////////////////////////////
-// RFC1321 P10 ‚Å define ‚³‚ê‚Ä‚¢‚é FF()
+// RFC1321 P10 ã§ define ã•ã‚Œã¦ã„ã‚‹ FF()
     function MD5FF(a,b,c,d,x,s,ac){
      var ans;
      ans = (a + MD5F(b,c,d) + x + ac) % 4294967296;
@@ -96,7 +96,7 @@ function MD5G(x,y,z){
      return ans;
     }
 ///////////////////////////////////////
-// RFC1321 P11 ‚Å define ‚³‚ê‚Ä‚¢‚é GG()
+// RFC1321 P11 ã§ define ã•ã‚Œã¦ã„ã‚‹ GG()
     function MD5GG(a,b,c,d,x,s,ac){
      var ans;
      ans = (a + MD5G(b,c,d) + x + ac) % 4294967296;
@@ -105,7 +105,7 @@ function MD5G(x,y,z){
      return ans;
     }
 ///////////////////////////////////////
-// RFC1321 P11 ‚Å define ‚³‚ê‚Ä‚¢‚é HH()
+// RFC1321 P11 ã§ define ã•ã‚Œã¦ã„ã‚‹ HH()
     function MD5HH(a,b,c,d,x,s,ac){
      var ans;
      ans = (a + MD5H(b,c,d) + x + ac) % 4294967296;
@@ -114,7 +114,7 @@ function MD5G(x,y,z){
      return ans;
     }
 ///////////////////////////////////////
-// RFC1321 P11 ‚Å define ‚³‚ê‚Ä‚¢‚é II()
+// RFC1321 P11 ã§ define ã•ã‚Œã¦ã„ã‚‹ II()
     function MD5II(a,b,c,d,x,s,ac){
      var ans;
      ans = (a + MD5I(b,c,d) + x + ac) % 4294967296;
@@ -123,18 +123,18 @@ function MD5G(x,y,z){
      return ans;
     }
 ///////////////////////////////////////
-// RFC1321 P11 ‚Ì MD5Update()
-// inputLen ‚Ì’PˆÊ‚Í byte
+// RFC1321 P11 ã® MD5Update()
+// inputLen ã®å˜ä½ã¯ byte
     function MD5Update(input,inputLen){
-        // myIndex ‚Ì’PˆÊ‚Í byte
+        // myIndex ã®å˜ä½ã¯ byte
      var i;
      var myIndex;
      var partLen;
-        // contextCount[0] ‚ğ byte ’PˆÊ‚É•ÏŠ·‚µ‚Ä
-        // 64byte ’PˆÊ‚Å—]‚è‚ª myIndex
+        // contextCount[0] ã‚’ byte å˜ä½ã«å¤‰æ›ã—ã¦
+        // 64byte å˜ä½ã§ä½™ã‚ŠãŒ myIndex
      // myIndex = (MD5contextCount[0] >>> 3) & 0x3f;
      myIndex = (MD5contextCount[0] / 8) % 64;
-        // bit ’PˆÊ‚É‚µ‚ÄŠi”[
+        // bit å˜ä½ã«ã—ã¦æ ¼ç´
      // MD5contextCount[0] += inputLen <<< 3;
      MD5contextCount[0] += inputLen * 8;
 
@@ -142,11 +142,11 @@ function MD5G(x,y,z){
      if(MD5contextCount[0] < inputLen * 8){
       MD5contextCount[1]++;
      }
-        // 8”{(3bit ƒVƒtƒg)‚µ‚½ê‡A
-        // ã‚Ì 3bit ‚Ìƒf[ƒ^‚ªÌ‚Ä‚ç‚ê‚é‰Â”\«‚ª‚ ‚é
-        // ‚»‚Ì’l‚ğŠi”[
+        // 8å€(3bit ã‚·ãƒ•ãƒˆ)ã—ãŸå ´åˆã€
+        // ä¸Šã® 3bit ã®ãƒ‡ãƒ¼ã‚¿ãŒæ¨ã¦ã‚‰ã‚Œã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹
+        // ãã®å€¤ã‚’æ ¼ç´
      MD5contextCount[1] += (inputLen >>> 29) & 0x07;
-        // 64 ‚Ì—]‚è
+        // 64 ã®ä½™ã‚Š
      partLen = 64 - myIndex;
      if(partLen <= inputLen){
       MD5Memcpy(myIndex,input,0,partLen);
@@ -161,14 +161,14 @@ function MD5G(x,y,z){
      MD5Memcpy(myIndex,input,i,inputLen-i);
     }
 ///////////////////////////////////////
-// RFC1321 P12 ‚Ì MD5Final()
+// RFC1321 P12 ã® MD5Final()
     function MD5Final(){
      var bits;
      var myIndex;
      var padLen;
      bits = new Array(8);
      MD5Encode(bits,MD5contextCount,8);
-        // 8 ‚ÅŠ„‚Á‚Ä(bit‚ğbyte‚É‚µ‚Ä)64‚ÅŠ„‚Á‚½—]‚è
+        // 8 ã§å‰²ã£ã¦(bitã‚’byteã«ã—ã¦)64ã§å‰²ã£ãŸä½™ã‚Š
      // myIndex = (MD5contextCount[0] >>> 3) & 0x3f;
      myIndex = (MD5contextCount[0] / 8) % 64;
      if(myIndex < 56){
@@ -181,8 +181,8 @@ function MD5G(x,y,z){
      MD5Encode(MD5digest,MD5contextState,16);
     }
 ///////////////////////////////////////
-// RFC1321 P15 ‚Ì MD5_memcpy()
-// MD5contextBuffer ‚ÖƒRƒs[
+// RFC1321 P15 ã® MD5_memcpy()
+// MD5contextBuffer ã¸ã‚³ãƒ”ãƒ¼
     function MD5Memcpy(iti1,input,iti2,len){
      var i;
      for(i=0;i<len;i++){
@@ -190,7 +190,7 @@ function MD5G(x,y,z){
      }
     }
 ///////////////////////////////////////
-// RFC1321 P13 ‚Ì MD5Transform()
+// RFC1321 P13 ã® MD5Transform()
     function MD5Transform(state,block,i){
      var a;
      var b;
@@ -283,9 +283,9 @@ function MD5G(x,y,z){
      state[3] = (state[3] + d) % 4294967296;
     }
 ///////////////////////////////////////
-// RFC1321 P15 ‚Ì Decode()
-// 4‚Â‚Ì•¶šƒR[ƒh‚ğ 32bit(4*8bit)‚Ì®”‚É‚·‚é
-// “ü—Í”z—ñ‚ÍA4 ‚Ì”{”‚Å‚ ‚é–
+// RFC1321 P15 ã® Decode()
+// 4ã¤ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’ 32bit(4*8bit)ã®æ•´æ•°ã«ã™ã‚‹
+// å…¥åŠ›é…åˆ—ã¯ã€4 ã®å€æ•°ã§ã‚ã‚‹äº‹
     function MD5Decode(output,input,len){
      var i;
      var j;
@@ -295,8 +295,8 @@ function MD5G(x,y,z){
      }
     }
 ///////////////////////////////////////
-// RFC1321 P15 ‚Ì Encode()
-// 32bit ®”‚©‚çA4‚Â‚Ì•¶š‚É‚·‚é
+// RFC1321 P15 ã® Encode()
+// 32bit æ•´æ•°ã‹ã‚‰ã€4ã¤ã®æ–‡å­—ã«ã™ã‚‹
     function MD5Encode(output,input,len){
      var temp;
      for(i=0;4*i<len+3;i++){
@@ -309,8 +309,8 @@ function MD5G(x,y,z){
      }
     }
 ///////////////////////////////////////
-// MD5 ‚ÌŠO•”‚©‚çƒAƒNƒZƒX‚³‚ê‚éƒCƒ“ƒ^[ƒtƒFƒCƒXEƒƒ\ƒbƒh
-// ˆø”‚É MD5 ƒnƒbƒVƒ…‚É‚µ‚½‚¢[•¶š—ñ]‚ğŠi”[‚·‚é
+// MD5 ã®å¤–éƒ¨ã‹ã‚‰ã‚¢ã‚¯ã‚»ã‚¹ã•ã‚Œã‚‹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ãƒ»ãƒ¡ã‚½ãƒƒãƒ‰
+// å¼•æ•°ã« MD5 ãƒãƒƒã‚·ãƒ¥ã«ã—ãŸã„[æ–‡å­—åˆ—]ã‚’æ ¼ç´ã™ã‚‹
 function MD5Main(input){
      var myStr;
      var myChar;
@@ -321,28 +321,28 @@ function MD5Main(input){
      var seedStr;
      var err;
      var ans;
-        // MD5 ‚ÌƒOƒ[ƒoƒ‹•Ï”‚Ì‰Šú‰»
-        // RFC1321 P11 ‚Ì MD5Init() ƒƒ\ƒbƒh‚ğŠÜ‚İ
-        // MD5Update() ‚ğŒo‚ÄAMD5Final() ‚Ü‚Åˆ—‚µA
-        // Œ‹‰Ê‚ğ•¶š—ñ‚ÉƒfƒR[ƒh‚µ‚Äo—Í‚·‚é
+        // MD5 ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°ã®åˆæœŸåŒ–
+        // RFC1321 P11 ã® MD5Init() ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å«ã¿
+        // MD5Update() ã‚’çµŒã¦ã€MD5Final() ã¾ã§å‡¦ç†ã—ã€
+        // çµæœã‚’æ–‡å­—åˆ—ã«ãƒ‡ã‚³ãƒ¼ãƒ‰ã—ã¦å‡ºåŠ›ã™ã‚‹
      MD5contextCount = new Array(0,0);
      MD5contextState = new Array(0x67452301,0xefcdab89,0x98badcfe,0x10325476);
      MD5contextBuffer = new Array(64);
      MD5IntInputData = new Array();
      MD5digest = new Array(16);
-        // ƒ[ƒJƒ‹•Ï”‚Ì‰Šú‰»
+        // ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã®åˆæœŸåŒ–
      j = 0;
-                // •¶š—ñ‚ğ®”(•¶šƒR[ƒh)‚Ì”z—ñ‚É‚·‚é
-        // %nn ‚É‚È‚ç‚È‚¢•¶š‚ÌƒR[ƒh
-        // ‚±‚ê‚ÉA33 ‚ğ‰Á‚¦‚é‚ÆƒR[ƒh‚É‚È‚éB
-        // u\vu`v‚Í %nn ‚É‚È‚é‚Ì‚ÅAƒeƒLƒg[‚È•¶š(A)‚Å–„‚ß‚Ä‚¢‚é
+                // æ–‡å­—åˆ—ã‚’æ•´æ•°(æ–‡å­—ã‚³ãƒ¼ãƒ‰)ã®é…åˆ—ã«ã™ã‚‹
+        // %nn ã«ãªã‚‰ãªã„æ–‡å­—ã®ã‚³ãƒ¼ãƒ‰
+        // ã“ã‚Œã«ã€33 ã‚’åŠ ãˆã‚‹ã¨ã‚³ãƒ¼ãƒ‰ã«ãªã‚‹ã€‚
+        // ã€Œ\ã€ã€Œ`ã€ã¯ %nn ã«ãªã‚‹ã®ã§ã€ãƒ†ã‚­ãƒˆãƒ¼ãªæ–‡å­—(A)ã§åŸ‹ã‚ã¦ã„ã‚‹
      seedStr = '' + '!"#$%&';
      seedStr = "" + seedStr + "'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ";
      seedStr = "" + seedStr + "[A]^_Aabcdefghijklmnopqrstuvwxyz{|}~";
      err = 0;
-        // %nn ‚É•ÏŠ·
+        // %nn ã«å¤‰æ›
      myStr = escape(input);
-        // ”’l‚Ì”z—ñ‚Ö’u‚«Š·‚¦
+        // æ•°å€¤ã®é…åˆ—ã¸ç½®ãæ›ãˆ
      for(i=0;i<myStr.length;i++){
       myChar = "" + myStr.charAt(i);
       if(myChar == '%'){
@@ -365,11 +365,11 @@ function MD5Main(input){
       }
      }
      if(err == 0){
-        // MD5Update() ‚ğÀs
+        // MD5Update() ã‚’å®Ÿè¡Œ
       MD5Update(MD5IntInputData,MD5IntInputData.length);
-        // MD5Final() ‚ğÀs
+        // MD5Final() ã‚’å®Ÿè¡Œ
       MD5Final();
-        // Œ‹‰Ê‚ğ•¶š—ñ‚ÉƒfƒR[ƒh
+        // çµæœã‚’æ–‡å­—åˆ—ã«ãƒ‡ã‚³ãƒ¼ãƒ‰
       myChar = "" + "";
       ans = "" + "";
       for(i=0;i<16;i++){
@@ -379,17 +379,17 @@ function MD5Main(input){
       }
       myChar = unescape(myChar);
      }else{
-        // ‚±‚±‚ÉAƒGƒ‰[ˆ—
-        // %nn ˆ—‚ª‚¨‚©‚µ‚¢B%nn ‚É‚È‚ç‚È‚¢•¶š—ñ‚ÅƒŠƒXƒg‚É‚È‚¢ƒ„ƒc‚ª‚¢‚é
+        // ã“ã“ã«ã€ã‚¨ãƒ©ãƒ¼å‡¦ç†
+        // %nn å‡¦ç†ãŒãŠã‹ã—ã„ã€‚%nn ã«ãªã‚‰ãªã„æ–‡å­—åˆ—ã§ãƒªã‚¹ãƒˆã«ãªã„ãƒ¤ãƒ„ãŒã„ã‚‹
       ans = "";
      }
      return ans;
 }
-// •„‡‚È‚µ 32bit ƒrƒbƒg‰‰Z
+// ç¬¦åˆãªã— 32bit ãƒ“ãƒƒãƒˆæ¼”ç®—
 // From http://rocketeer.dip.jp/sanaki/free/javascript/freejs18.htm
-// 32bit •„‡‚È‚µƒrƒbƒg‰‰Z(”½“])
-// “ü—Í’l : 0 <= s <= 4294967295
-// –ß‚è’l : 0 <= –ß‚è’l <= 4294967295
+// 32bit ç¬¦åˆãªã—ãƒ“ãƒƒãƒˆæ¼”ç®—(åè»¢)
+// å…¥åŠ›å€¤ : 0 <= s <= 4294967295
+// æˆ»ã‚Šå€¤ : 0 <= æˆ»ã‚Šå€¤ <= 4294967295
     function BitNot(s){
      var s1;
      var s2;
@@ -403,10 +403,10 @@ function MD5Main(input){
      ans = BitSub(s1,s2);
      return ans;
     }
-// 32bit •„‡‚È‚µƒrƒbƒg‰‰Z(OR)
-// “ü—Í’l : 0 <= s <= 4294967295
-// “ü—Í’l : 0 <= t <= 4294967295
-// –ß‚è’l : 0 <= –ß‚è’l <= 4294967295
+// 32bit ç¬¦åˆãªã—ãƒ“ãƒƒãƒˆæ¼”ç®—(OR)
+// å…¥åŠ›å€¤ : 0 <= s <= 4294967295
+// å…¥åŠ›å€¤ : 0 <= t <= 4294967295
+// æˆ»ã‚Šå€¤ : 0 <= æˆ»ã‚Šå€¤ <= 4294967295
     function BitOr(s,t){
      var s1;
      var s2;
@@ -424,10 +424,10 @@ function MD5Main(input){
      ans = BitSub(ans1,ans2);
      return ans;
     }
-// 32bit •„‡‚È‚µƒrƒbƒg‰‰Z(AND)
-// “ü—Í’l : 0 <= s <= 4294967295
-// “ü—Í’l : 0 <= t <= 4294967295
-// –ß‚è’l : 0 <= –ß‚è’l <= 4294967295
+// 32bit ç¬¦åˆãªã—ãƒ“ãƒƒãƒˆæ¼”ç®—(AND)
+// å…¥åŠ›å€¤ : 0 <= s <= 4294967295
+// å…¥åŠ›å€¤ : 0 <= t <= 4294967295
+// æˆ»ã‚Šå€¤ : 0 <= æˆ»ã‚Šå€¤ <= 4294967295
     function BitAnd(s,t){
      var s1;
      var s2;
@@ -445,10 +445,10 @@ function MD5Main(input){
      ans = BitSub(ans1,ans2);
      return ans;
     }
-// 32bit •„‡‚È‚µƒrƒbƒg‰‰Z(XOR)
-// “ü—Í’l : 0 <= s <= 4294967295
-// “ü—Í’l : 0 <= t <= 4294967295
-// –ß‚è’l : 0 <= –ß‚è’l <= 4294967295
+// 32bit ç¬¦åˆãªã—ãƒ“ãƒƒãƒˆæ¼”ç®—(XOR)
+// å…¥åŠ›å€¤ : 0 <= s <= 4294967295
+// å…¥åŠ›å€¤ : 0 <= t <= 4294967295
+// æˆ»ã‚Šå€¤ : 0 <= æˆ»ã‚Šå€¤ <= 4294967295
 function BitXor(s,t){
      var s1;
      var s2;
@@ -466,12 +466,12 @@ function BitXor(s,t){
      ans = BitSub(ans1,ans2);
      return ans;
 }
-// 32bit •„‡‚È‚µƒrƒbƒg‰‰Z•â•
-// 16bit ‚¸‚Â‚É•ªŠ„‚µ‚Äƒrƒbƒg‰‰Z‚µ‚½’l‚ğ
-// ‚à‚Æ‚Ì32bit ‚Ì’l‚É‚È‚é‚æ‚¤‚ÉŒ‹‡
-// “ü—Í’l : 0 <= s <= 65535
-// “ü—Í’l : 0 <= t <= 65535
-// –ß‚è’l : 0 <= –ß‚è’l <= 4294967295
+// 32bit ç¬¦åˆãªã—ãƒ“ãƒƒãƒˆæ¼”ç®—è£œåŠ©
+// 16bit ãšã¤ã«åˆ†å‰²ã—ã¦ãƒ“ãƒƒãƒˆæ¼”ç®—ã—ãŸå€¤ã‚’
+// ã‚‚ã¨ã®32bit ã®å€¤ã«ãªã‚‹ã‚ˆã†ã«çµåˆ
+// å…¥åŠ›å€¤ : 0 <= s <= 65535
+// å…¥åŠ›å€¤ : 0 <= t <= 65535
+// æˆ»ã‚Šå€¤ : 0 <= æˆ»ã‚Šå€¤ <= 4294967295
 function BitSub(s,t){
     return (s + (65536 * t));
 }
